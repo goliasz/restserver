@@ -51,6 +51,8 @@ local function decode(data, mimetype, schema)
       return tbl
    elseif mimetype == "text/plain" then
       return data or ""
+   elseif mimetype == "text/html" then
+      return data or ""
    elseif not mimetype or mimetype == "*/*" then
       return data or ""
    else
@@ -68,6 +70,8 @@ local function encode(data, mimetype, schema)
       end
       return json.encode(data)
    elseif mimetype == "text/plain" then
+      return data or ""
+   elseif mimetype == "text/html" then
       return data or ""
    elseif not mimetype then
       return data or ""
